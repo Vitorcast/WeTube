@@ -26,6 +26,17 @@ body {
     margin: 15px;
 }
 
+
+/* Navbar */
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-brand > img {
+    padding: 7px 14px;
+}
+
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
