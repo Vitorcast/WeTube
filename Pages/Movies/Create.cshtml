@@ -1,0 +1,43 @@
+@page
+@model WeTube.Pages_Movies.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Movie.Title" class="control-label"></label>
+                <input asp-for="Movie.Title" class="form-control" />
+                <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movie.Description" class="control-label"></label>
+                <input asp-for="Movie.Description" class="form-control" />
+                <span asp-validation-for="Movie.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.Label("Upload Movie")
+
+                <input type="file" id="file" name="files" class="form-control" />
+                @Html.HiddenFor(model => model.Movie.StorageUrl)
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,12 @@
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Debug\netcoreapp2.0\WeTube.deps.json
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Debug\netcoreapp2.0\WeTube.runtimeconfig.json
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Debug\netcoreapp2.0\WeTube.runtimeconfig.dev.json
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Debug\netcoreapp2.0\WeTube.dll
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Debug\netcoreapp2.0\WeTube.pdb
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\WeTube.csprojResolveAssemblyReference.cache
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\WeTube.csproj.CoreCompileInputs.cache
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\WeTube.AssemblyInfoInputs.cache
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\WeTube.AssemblyInfo.cs
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\WeTube.dll
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\WeTube.pdb
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
