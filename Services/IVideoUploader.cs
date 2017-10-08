@@ -5,7 +5,7 @@ namespace WeTube.Services
 {
     public interface IVideoUploader
     {
-        Task DeleteUploadedImage(long id);
+        Task Delete(long id);
         Task<string> Upload(IFormFile file, long id);
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using WeTube.Services;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace WeTube.Pages_Movies
 {
@@ -48,15 +49,25 @@ namespace WeTube.Pages_Movies
 
 
             Movie.ApplicationUserId = int.Parse(_userManager.GetUserId(User));
-;
+
+            _context.Movie.Add(Movie);
+            await _context.SaveChangesAsync();
+            
             if (files != null)
             {
                 var fileUrl = await _videoUploader.Upload(files.FirstOrDefault(), Movie.Id);
                 Movie.StorageUrl = fileUrl;
             }
 
-            _context.Movie.Add(Movie);
-            await _context.SaveChangesAsync();
+            _context.Attach(Movie);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+            }
 
             return RedirectToPage("./Index");
            

@@ -6,16 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WeTube.Data;
+using WeTube.Services;
 
 namespace WeTube.Pages_Movies
 {
     public class DeleteModel : PageModel
     {
         private readonly WeTube.Data.ApplicationDbContext _context;
+        private readonly VideoUploader _videoUploader;
 
-        public DeleteModel(WeTube.Data.ApplicationDbContext context)
+        public DeleteModel(WeTube.Data.ApplicationDbContext context,
+            VideoUploader videoUploader)
         {
             _context = context;
+            _videoUploader = videoUploader;
         }
 
         [BindProperty]
@@ -49,8 +53,9 @@ namespace WeTube.Pages_Movies
 
             if (Movie != null)
             {
+                await _videoUploader.Delete(Movie.Id);
                 _context.Movie.Remove(Movie);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();                
             }
 
             return RedirectToPage("./Index");

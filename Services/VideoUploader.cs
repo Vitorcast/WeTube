@@ -38,7 +38,7 @@ namespace WeTube.Services
             }
         }
 
-        public async Task DeleteUploadedImage(long id)
+        public async Task Delete(long id)
         {
             try
             {

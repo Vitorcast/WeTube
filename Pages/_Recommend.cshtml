@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WeTube.Data
+@inject ApplicationDbContext db
+
+@{
+    var rows = db.Movie.Count() % 4;
+}
+
+
+<div class="recommended-info" style="padding-top:20px">
+    <h3>Recommended</h3>
+</div>
+
+@for (int i = 0; i < rows; i++)
+{
+    <div class="recommended">
+        <div class="recommended-grids"> 
+            @foreach (var item in db.Movie.OrderByDescending(x=>x.TimeStamp).Skip(i*4).Take(4))
+            {
+                <div class="col-md-3 resent-grid recommended-grid">
+                    <div class="resent-grid-img recommended-grid-img">
+                        <a href="single.html"><video style="max-height:200px" src="@item.StorageUrl"></video></a>
+                    </div>
+                    <div class="resent-grid-info recommended-grid-info video-info-grid">
+                        <h5><a href="single.html" class="title">@item.Description</a></h5>
+                        <ul>
+                            <li><p class="author author-info"><a href="#" class="author">@db.Users.Where(x => x.Id == item.ApplicationUserId).FirstOrDefault() </a></p></li>
+                            <li class="right-list"><p class="views views-info">@item.Rating Likes</p></li>
+                        </ul>
+                    </div>
+                </div>
+            }         
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+}
+

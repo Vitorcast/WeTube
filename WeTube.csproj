@@ -2,15 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-WeTube-92497C8B-14EA-4166-BC07-B2ADF84A6F20</UserSecretsId>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="Data\IdentityDbContext.cs" />
-    <Compile Remove="Data\UserLogin.cs" />
-    <Compile Remove="Data\UserRole.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\js\generateThumb.js" />
-  </ItemGroup>
+  </PropertyGroup> 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Storage.V1" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
@@ -22,8 +14,5 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>
