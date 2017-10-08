@@ -9,6 +9,14 @@ namespace WeTube.Data
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser<long>
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public virtual string FullName { get {
+                return FirstName + " " + LastName;
+            }
+        }
+
         public virtual ICollection<Movie> Movies { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
     }
