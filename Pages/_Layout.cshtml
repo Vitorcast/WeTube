@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a asp-page="/Index" class="navbar-brand">
-                    <img style="width: 64px;"  src="~/images/logo.png" alt="WeTube" />
+                    <img style="width: 100px;"  src="~/images/logo.png" alt="WeTube" />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -64,7 +64,7 @@
                 </div>
         </div>
     </nav>
-    <div class="container body-content">
+    <div class="container body-content">        
         @RenderBody()
         <hr />
         <footer>
@@ -90,7 +90,7 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>       
     </environment>
 
     @RenderSection("Scripts", required: false)

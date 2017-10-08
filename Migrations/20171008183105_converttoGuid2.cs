@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WeTube.Migrations
 {
-    public partial class MoveToLongIds : Migration
+    public partial class converttoGuid2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace WeTube.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true),
                     Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true),
@@ -28,7 +28,7 @@ namespace WeTube.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     AccessFailedCount = table.Column<int>(type: "int", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "longtext", nullable: true),
@@ -58,7 +58,7 @@ namespace WeTube.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    RoleId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,7 +79,7 @@ namespace WeTube.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,7 +99,7 @@ namespace WeTube.Migrations
                     LoginProvider = table.Column<string>(type: "varchar(127)", nullable: false),
                     ProviderKey = table.Column<string>(type: "varchar(127)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "longtext", nullable: true),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -116,8 +116,8 @@ namespace WeTube.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    RoleId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -140,7 +140,7 @@ namespace WeTube.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
                     LoginProvider = table.Column<string>(type: "varchar(127)", nullable: false),
                     Name = table.Column<string>(type: "varchar(127)", nullable: false),
                     Value = table.Column<string>(type: "longtext", nullable: true)
@@ -162,23 +162,23 @@ namespace WeTube.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ApplicationUserId = table.Column<string>(type: "longtext", nullable: true),
-                    ApplicationUserId1 = table.Column<int>(type: "int", nullable: true),
+                    ApplicationUserId = table.Column<long>(type: "bigint", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: true),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    RowVersion = table.Column<byte[]>(type: "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", rowVersion: true, nullable: true),
                     StorageUrl = table.Column<string>(type: "longtext", nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
                     Title = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Movie", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Movie_AspNetUsers_ApplicationUserId1",
-                        column: x => x.ApplicationUserId1,
+                        name: "FK_Movie_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,11 +187,13 @@ namespace WeTube.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ApplicationUserId = table.Column<string>(type: "longtext", nullable: true),
-                    CommentedById = table.Column<int>(type: "int", nullable: true),
+                    ApplicationUserId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    CommentedById = table.Column<long>(type: "bigint", nullable: true),
                     Description = table.Column<string>(type: "longtext", nullable: true),
-                    MediaItemId = table.Column<int>(type: "int", nullable: true),
-                    MediaItemId1 = table.Column<long>(type: "bigint", nullable: true)
+                    MovieId = table.Column<int>(type: "int", nullable: true),
+                    MovieId1 = table.Column<long>(type: "bigint", nullable: true),
+                    TimeStamp = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn)
                 },
                 constraints: table =>
                 {
@@ -203,8 +205,8 @@ namespace WeTube.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Comment_Movie_MediaItemId1",
-                        column: x => x.MediaItemId1,
+                        name: "FK_Comment_Movie_MovieId1",
+                        column: x => x.MovieId1,
                         principalTable: "Movie",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -253,14 +255,14 @@ namespace WeTube.Migrations
                 column: "CommentedById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_MediaItemId1",
+                name: "IX_Comment_MovieId1",
                 table: "Comment",
-                column: "MediaItemId1");
+                column: "MovieId1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movie_ApplicationUserId1",
+                name: "IX_Movie_ApplicationUserId",
                 table: "Movie",
-                column: "ApplicationUserId1");
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

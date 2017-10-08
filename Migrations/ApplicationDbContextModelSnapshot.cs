@@ -20,7 +20,7 @@ namespace WeTube.Migrations
                 .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -29,7 +29,7 @@ namespace WeTube.Migrations
 
                     b.Property<string>("ClaimValue");
 
-                    b.Property<int>("RoleId");
+                    b.Property<long>("RoleId");
 
                     b.HasKey("Id");
 
@@ -38,7 +38,7 @@ namespace WeTube.Migrations
                     b.ToTable("AspNetRoleClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<long>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -47,7 +47,7 @@ namespace WeTube.Migrations
 
                     b.Property<string>("ClaimValue");
 
-                    b.Property<int>("UserId");
+                    b.Property<long>("UserId");
 
                     b.HasKey("Id");
 
@@ -56,7 +56,7 @@ namespace WeTube.Migrations
                     b.ToTable("AspNetUserClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
                 {
                     b.Property<string>("LoginProvider");
 
@@ -64,7 +64,7 @@ namespace WeTube.Migrations
 
                     b.Property<string>("ProviderDisplayName");
 
-                    b.Property<int>("UserId");
+                    b.Property<long>("UserId");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -73,11 +73,11 @@ namespace WeTube.Migrations
                     b.ToTable("AspNetUserLogins");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
                 {
-                    b.Property<int>("UserId");
+                    b.Property<long>("UserId");
 
-                    b.Property<int>("RoleId");
+                    b.Property<long>("RoleId");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -86,9 +86,9 @@ namespace WeTube.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
                 {
-                    b.Property<int>("UserId");
+                    b.Property<long>("UserId");
 
                     b.Property<string>("LoginProvider");
 
@@ -103,7 +103,7 @@ namespace WeTube.Migrations
 
             modelBuilder.Entity("WeTube.Data.ApplicationUser", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
@@ -156,15 +156,15 @@ namespace WeTube.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
+                    b.Property<Guid>("ApplicationUserId");
 
-                    b.Property<int?>("CommentedById");
+                    b.Property<long?>("CommentedById");
 
                     b.Property<string>("Description");
 
-                    b.Property<int?>("MediaItemId");
+                    b.Property<int?>("MovieId");
 
-                    b.Property<long?>("MediaItemId1");
+                    b.Property<long?>("MovieId1");
 
                     b.Property<DateTime>("TimeStamp")
                         .IsConcurrencyToken()
@@ -175,7 +175,7 @@ namespace WeTube.Migrations
 
                     b.HasIndex("CommentedById");
 
-                    b.HasIndex("MediaItemId1");
+                    b.HasIndex("MovieId1");
 
                     b.ToTable("Comment");
                 });
@@ -185,9 +185,7 @@ namespace WeTube.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("ApplicationUserId");
-
-                    b.Property<int?>("ApplicationUserId1");
+                    b.Property<long>("ApplicationUserId");
 
                     b.Property<string>("Description");
 
@@ -204,14 +202,14 @@ namespace WeTube.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId1");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Movie");
                 });
 
             modelBuilder.Entity("WeTube.Data.MyRole", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ConcurrencyStamp")
@@ -232,7 +230,7 @@ namespace WeTube.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
                 {
                     b.HasOne("WeTube.Data.MyRole")
                         .WithMany()
@@ -240,7 +238,7 @@ namespace WeTube.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<long>", b =>
                 {
                     b.HasOne("WeTube.Data.ApplicationUser")
                         .WithMany()
@@ -248,7 +246,7 @@ namespace WeTube.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
                 {
                     b.HasOne("WeTube.Data.ApplicationUser")
                         .WithMany()
@@ -256,7 +254,7 @@ namespace WeTube.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<long>", b =>
                 {
                     b.HasOne("WeTube.Data.MyRole")
                         .WithMany()
@@ -269,7 +267,7 @@ namespace WeTube.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<long>", b =>
                 {
                     b.HasOne("WeTube.Data.ApplicationUser")
                         .WithMany()
@@ -283,16 +281,17 @@ namespace WeTube.Migrations
                         .WithMany("Comments")
                         .HasForeignKey("CommentedById");
 
-                    b.HasOne("WeTube.Data.Movie", "MediaItem")
+                    b.HasOne("WeTube.Data.Movie", "Movie")
                         .WithMany("Comments")
-                        .HasForeignKey("MediaItemId1");
+                        .HasForeignKey("MovieId1");
                 });
 
             modelBuilder.Entity("WeTube.Data.Movie", b =>
                 {
                     b.HasOne("WeTube.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Movies")
-                        .HasForeignKey("ApplicationUserId1");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

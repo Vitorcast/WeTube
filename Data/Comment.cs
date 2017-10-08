@@ -12,11 +12,11 @@ namespace WeTube.Data
         public long Id { get; set; }
         public string Description { get; set; }
 
-        public int? MediaItemId {get;set;}
-        public virtual Movie MediaItem { get; set; }
+        public int? MovieId {get;set;}
+        public virtual Movie Movie { get; set; }
        
 
-        public string ApplicationUserId { get; set; }
+        public Guid ApplicationUserId { get; set; }
         public virtual ApplicationUser CommentedBy { get; set; }
 
         [ConcurrencyCheck]

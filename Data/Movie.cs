@@ -21,7 +21,7 @@ namespace WeTube.Data
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime TimeStamp { get; set; }
 
-        public string ApplicationUserId { get; set; }
+        public long ApplicationUserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 

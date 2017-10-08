@@ -47,8 +47,8 @@ namespace WeTube.Pages_Movies
             }
 
 
-            Movie.ApplicationUserId = _userManager.GetUserId(User);
-
+            Movie.ApplicationUserId = int.Parse(_userManager.GetUserId(User));
+;
             if (files != null)
             {
                 var fileUrl = await _videoUploader.Upload(files.FirstOrDefault(), Movie.Id);

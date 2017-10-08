@@ -1,4 +1,4 @@
-@page
+@page "{id:long}"
 @model WeTube.Pages_Movies.DetailsModel
 
 @{
@@ -36,10 +36,10 @@
             @Html.DisplayFor(model => model.Movie.Rating)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Movie.RowVersion)
+            @Html.DisplayNameFor(model => model.Movie.TimeStamp)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Movie.RowVersion)
+            @Html.DisplayFor(model => model.Movie.TimeStamp)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Movie.ApplicationUser)

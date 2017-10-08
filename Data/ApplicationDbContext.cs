@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace WeTube.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, MyRole, int>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, MyRole, long>
     {
         public virtual DbSet<Comment> Comment { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
