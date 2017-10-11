@@ -1,5 +1,6 @@
-runtime: custom
-env: flex
+runtime: aspnetcore
+env: flexible
+threadsafe: true
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 1
