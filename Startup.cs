@@ -20,7 +20,7 @@ namespace WeTube
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration; 
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -35,6 +35,12 @@ namespace WeTube
             services.AddIdentity<ApplicationUser, MyRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Facebook:AppSecret"];
+            });
 
             services.AddTransient<VideoUploader>(x => new VideoUploader("wetube",
                 "graphic-matrix-179014"));
@@ -84,6 +90,7 @@ namespace WeTube
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                new ConfigurationBuilder().AddUserSecrets<Startup>();
             }
             else
             {

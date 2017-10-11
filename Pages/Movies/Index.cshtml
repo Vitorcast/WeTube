@@ -44,7 +44,8 @@
                 <video width="320" height="240" controls>
                     <source src="@item.StorageUrl" type="video/mp4">                   
                     Your browser does not support the video tag.
-                </video>              
+                </video>    
+                <a href="@item.DownloadUrl">Download</a>          
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)

@@ -1,0 +1,86 @@
+﻿@page "{id:long}"
+@model SingleModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject ApplicationDbContext db
+@{
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="show-top-grids">
+        <div class="col-sm-8 single-left">
+            <div class="song">
+                <div class="song-info">
+                    <h3>@Model.Movie.Title</h3>
+                </div>
+                <div class="video-grid">
+                    <video style="max-height:500ox" src="@Model.Movie.StorageUrl"></video>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <div class="published">
+                <div class="load_more">
+                    <h4>Published on @Model.Movie.TimeStamp.ToShortDateString()</h4>
+                    <p>@Model.Movie.Description</p>
+                    </ul>
+                </div>
+            </div>
+            <div class="all-comments">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div class="all-comments-info">
+                        <div class="col-sm-5 col-md-5">
+                            Comments (@db.Comment.Where(x => x.MovieId == Model.Movie.Id).Count())
+                            <form method="post">
+                                <textarea asp-for="Input.Comment" style="width=100%" name="Comment" placeholder="Comment" required></textarea>
+                                <div class="clearfix"> </div>
+                                <input type="submit" value="SEND">
+                            </form>
+                        </div>
+                    </div>
+                }
+                <div class="clearfix"> </div>
+                <div class="media-grids">
+                    @foreach (var comment in Model.Comments)
+                    {
+                        <div class="media">
+                            <h5>@comment.ApplicationUser.FullName</h5>
+                            <div class="media-left">
+                                <a href="#">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <p>@comment.Description</p>
+                                <span>View all posts by :<a href="#"> @comment.ApplicationUser.FullName </a></span>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 single-right">
+            <h3>Up Next</h3>
+            <div class="single-grid-right">
+                @foreach (var video in db.Movie.Where(x => x.ApplicationUserId == Model.Movie.ApplicationUserId))
+                {
+                    <div class="single-right-grids">
+                        <div class="col-md-4 single-right-grid-left">
+                            <a asp-page="/Single" asp-route-id="@video.Id"><video style="max-height:50px" src="@video.StorageUrl"></video></a>
+
+                        </div>
+                        <div class="col-md-8 single-right-grid-right">
+                            <a href="single.html" class="title"> @video.Title</a>
+                            <p class="author"><a href="#" class="author">@video.ApplicationUser.FullName</a></p>
+                            <p class="views">2,114,200 views</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="clearfix"> </div>

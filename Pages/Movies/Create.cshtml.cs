@@ -56,7 +56,8 @@ namespace WeTube.Pages_Movies
             if (files != null)
             {
                 var fileUrl = await _videoUploader.Upload(files.FirstOrDefault(), Movie.Id);
-                Movie.StorageUrl = fileUrl;
+                Movie.StorageUrl = fileUrl.MediaLink;
+                Movie.DownloadUrl = fileUrl.DownloadLink;
             }
 
             _context.Attach(Movie);
@@ -69,9 +70,7 @@ namespace WeTube.Pages_Movies
 
             }
 
-            return RedirectToPage("./Index");
-           
-
+            return RedirectToPage("../Single", new { id = Movie.Id });
            
         }
     }

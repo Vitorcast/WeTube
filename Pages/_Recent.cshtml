@@ -10,11 +10,11 @@
 {
     <div class="col-md-4 resent-grid recommended-grid slider-top-grids">
         <div class="resent-grid-img recommended-grid-img">
-            <a href="single.html"><video style="max-height:270px" src="@item.StorageUrl"></video></a>         
+            <a asp-page="/Single" asp-route-id="@item.Id"><video style="max-height:270px" src="@item.StorageUrl"></video></a>         
           
         </div>
         <div class="resent-grid-info recommended-grid-info">
-            <h3><a href="single.html" class="title title-info">@item.Description</a></h3>
+            <h3><a asp-page="/Single" asp-route-id="@item.Id" class="title title-info">@item.Description</a></h3>
             <ul>
                 <li><a href="#" class="author author-info">@db.Users.Where(x=> x.Id == item.ApplicationUserId).FirstOrDefault().FullName </a></li>
                 <li class="right-list"><p class="views views-info">@item.Rating Likes</p></li>

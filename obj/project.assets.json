@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "Google.Api.CommonProtos/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Protobuf": "3.3.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Api.CommonProtos.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Api.CommonProtos.dll": {}
+        }
+      },
       "Google.Api.Gax/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -15,6 +28,23 @@
         },
         "runtime": {
           "lib/netstandard1.3/Google.Api.Gax.dll": {}
+        }
+      },
+      "Google.Api.Gax.Grpc/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Api.CommonProtos": "1.1.0",
+          "Google.Api.Gax": "2.0.0",
+          "Google.Apis.Auth": "1.27.1",
+          "Grpc.Auth": "1.4.0",
+          "Grpc.Core": "1.4.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/Google.Api.Gax.Grpc.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Google.Api.Gax.Grpc.dll": {}
         }
       },
       "Google.Api.Gax.Rest/2.0.0": {
@@ -94,6 +124,71 @@
           "lib/netstandard1.3/Google.Apis.Storage.v1.dll": {}
         }
       },
+      "Google.Cloud.Diagnostics.AspNetCore/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Cloud.Diagnostics.Common": "1.0.0",
+          "Grpc.Core": "1.4.0",
+          "Microsoft.AspNetCore.Diagnostics.Abstractions": "1.1.2",
+          "Microsoft.AspNetCore.Http": "1.1.2",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
+          "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
+          "Microsoft.Extensions.Logging": "1.1.2",
+          "Microsoft.Extensions.Logging.Debug": "1.1.2",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/Google.Cloud.Diagnostics.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Google.Cloud.Diagnostics.AspNetCore.dll": {}
+        }
+      },
+      "Google.Cloud.Diagnostics.Common/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Cloud.Logging.V2": "2.0.0",
+          "Google.Cloud.Trace.V1": "1.0.0",
+          "Grpc.Core": "1.4.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1",
+          "System.Diagnostics.StackTrace": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/Google.Cloud.Diagnostics.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Google.Cloud.Diagnostics.Common.dll": {}
+        }
+      },
+      "Google.Cloud.Logging.Type/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Api.CommonProtos": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/Google.Cloud.Logging.Type.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Google.Cloud.Logging.Type.dll": {}
+        }
+      },
+      "Google.Cloud.Logging.V2/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Api.Gax.Grpc": "2.0.0",
+          "Google.Cloud.Logging.Type": "2.0.0",
+          "Grpc.Core": "1.4.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/Google.Cloud.Logging.V2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Google.Cloud.Logging.V2.dll": {}
+        }
+      },
       "Google.Cloud.Storage.V1/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -106,6 +201,100 @@
         },
         "runtime": {
           "lib/netstandard1.3/Google.Cloud.Storage.V1.dll": {}
+        }
+      },
+      "Google.Cloud.Trace.V1/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Api.Gax.Grpc": "2.0.0",
+          "Grpc.Core": "1.4.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/Google.Cloud.Trace.V1.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Google.Cloud.Trace.V1.dll": {}
+        }
+      },
+      "Google.Protobuf/3.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Globalization": "4.0.11",
+          "System.IO": "4.1.0",
+          "System.Linq": "4.1.0",
+          "System.Linq.Expressions": "4.1.0",
+          "System.ObjectModel": "4.0.12",
+          "System.Reflection": "4.1.0",
+          "System.Reflection.Extensions": "4.0.1",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {}
+        }
+      },
+      "Grpc.Auth/1.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Auth": "1.21.0",
+          "Grpc.Core": "1.4.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/Grpc.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Grpc.Auth.dll": {}
+        }
+      },
+      "Grpc.Core/1.4.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.Interactive.Async": "3.1.1",
+          "System.Runtime.Loader": "4.0.0",
+          "System.Threading.Thread": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/Grpc.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Grpc.Core.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux/native/libgrpc_csharp_ext.x64.so": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/linux/native/libgrpc_csharp_ext.x86.so": {
+            "assetType": "native",
+            "rid": "linux"
+          },
+          "runtimes/osx/native/libgrpc_csharp_ext.x64.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/osx/native/libgrpc_csharp_ext.x86.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win/native/grpc_csharp_ext.x64.dll": {
+            "assetType": "native",
+            "rid": "win"
+          },
+          "runtimes/win/native/grpc_csharp_ext.x86.dll": {
+            "assetType": "native",
+            "rid": "win"
+          }
         }
       },
       "Libuv/1.10.0": {
@@ -2912,7 +3101,7 @@
           }
         }
       },
-      "MySqlConnector/0.25.0": {
+      "MySqlConnector/0.26.4": {
         "type": "package",
         "dependencies": {
           "System.Buffers": "4.3.0",
@@ -2987,13 +3176,13 @@
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/2.0.0-rtm-10056": {
+      "Pomelo.EntityFrameworkCore.MySql/2.0.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "2.0.0",
           "Microsoft.Extensions.Logging.Console": "2.0.0",
-          "MySqlConnector": "0.25.0",
+          "MySqlConnector": "0.26.4",
           "Pomelo.JsonObject": "1.1.1"
         },
         "compile": {
@@ -4562,6 +4751,20 @@
           }
         }
       },
+      "System.Runtime.Loader/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.IO": "4.1.0",
+          "System.Reflection": "4.1.0",
+          "System.Runtime": "4.1.0"
+        },
+        "compile": {
+          "ref/netstandard1.5/System.Runtime.Loader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/System.Runtime.Loader.dll": {}
+        }
+      },
       "System.Runtime.Numerics/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5274,6 +5477,19 @@
     }
   },
   "libraries": {
+    "Google.Api.CommonProtos/1.1.0": {
+      "sha512": "24Neiw0ZSFBYJ39eUPm2LHWs3g/XrCgFjsp9mLuwnjMduMEPCcyf4d9xJzm7MW0MihA4IB+siKtcaSLD2yXfNw==",
+      "type": "package",
+      "path": "google.api.commonprotos/1.1.0",
+      "files": [
+        "google.api.commonprotos.1.1.0.nupkg.sha512",
+        "google.api.commonprotos.nuspec",
+        "lib/net45/Google.Api.CommonProtos.dll",
+        "lib/net45/Google.Api.CommonProtos.xml",
+        "lib/netstandard1.3/Google.Api.CommonProtos.dll",
+        "lib/netstandard1.3/Google.Api.CommonProtos.xml"
+      ]
+    },
     "Google.Api.Gax/2.0.0": {
       "sha512": "p6g/NQtuQWaaiGEQxTLKCT9HQcKtPDgTloRXHI57tmvV1o/9gUYRdI1cw3b2zaKOmu3tRxV2mGiTw4MABVrO+A==",
       "type": "package",
@@ -5285,6 +5501,19 @@
         "lib/net45/Google.Api.Gax.xml",
         "lib/netstandard1.3/Google.Api.Gax.dll",
         "lib/netstandard1.3/Google.Api.Gax.xml"
+      ]
+    },
+    "Google.Api.Gax.Grpc/2.0.0": {
+      "sha512": "h2aV7ZvVKwEduG00SgYH/FURZlG3JoqCwDAB3UTneoCIR3QLqI2wHFcN2sRHc1UoUnS+GBaUTsknoVjJ6HrlHQ==",
+      "type": "package",
+      "path": "google.api.gax.grpc/2.0.0",
+      "files": [
+        "google.api.gax.grpc.2.0.0.nupkg.sha512",
+        "google.api.gax.grpc.nuspec",
+        "lib/net45/Google.Api.Gax.Grpc.dll",
+        "lib/net45/Google.Api.Gax.Grpc.xml",
+        "lib/netstandard1.5/Google.Api.Gax.Grpc.dll",
+        "lib/netstandard1.5/Google.Api.Gax.Grpc.xml"
       ]
     },
     "Google.Api.Gax.Rest/2.0.0": {
@@ -5359,6 +5588,59 @@
         "lib/netstandard1.3/Google.Apis.Storage.v1.xml"
       ]
     },
+    "Google.Cloud.Diagnostics.AspNetCore/1.0.0": {
+      "sha512": "o+7D9MR6LuRKmjQSNFhPKDc/JelXKpmZT1aM9Phq4gzbXW+ktl0eW+tty3vvpdo9PV0MFNyccqrHvnIXpU5zbA==",
+      "type": "package",
+      "path": "google.cloud.diagnostics.aspnetcore/1.0.0",
+      "files": [
+        "google.cloud.diagnostics.aspnetcore.1.0.0.nupkg.sha512",
+        "google.cloud.diagnostics.aspnetcore.nuspec",
+        "lib/netstandard1.5/Google.Cloud.Diagnostics.AspNetCore.dll",
+        "lib/netstandard1.5/Google.Cloud.Diagnostics.AspNetCore.pdb",
+        "lib/netstandard1.5/Google.Cloud.Diagnostics.AspNetCore.xml"
+      ]
+    },
+    "Google.Cloud.Diagnostics.Common/1.0.0": {
+      "sha512": "4clnXFGGBlJRBp3qBkYJA5zaVN+QuK769lzJyvuRi9+0dbpTRwRQqTHNqwt5xGHPSCjO9I+frnoVvcmonj4JdA==",
+      "type": "package",
+      "path": "google.cloud.diagnostics.common/1.0.0",
+      "files": [
+        "google.cloud.diagnostics.common.1.0.0.nupkg.sha512",
+        "google.cloud.diagnostics.common.nuspec",
+        "lib/net45/Google.Cloud.Diagnostics.Common.dll",
+        "lib/net45/Google.Cloud.Diagnostics.Common.pdb",
+        "lib/net45/Google.Cloud.Diagnostics.Common.xml",
+        "lib/netstandard1.5/Google.Cloud.Diagnostics.Common.dll",
+        "lib/netstandard1.5/Google.Cloud.Diagnostics.Common.pdb",
+        "lib/netstandard1.5/Google.Cloud.Diagnostics.Common.xml"
+      ]
+    },
+    "Google.Cloud.Logging.Type/2.0.0": {
+      "sha512": "RrCSaPwW6WO0YBVpaV9KuUrEmMedJYi57O4WgnPGOMEHE8vR7I66xGNC8gutYxqxZDW1J5wRbeHJuKjMdZ2Fvw==",
+      "type": "package",
+      "path": "google.cloud.logging.type/2.0.0",
+      "files": [
+        "google.cloud.logging.type.2.0.0.nupkg.sha512",
+        "google.cloud.logging.type.nuspec",
+        "lib/net45/Google.Cloud.Logging.Type.dll",
+        "lib/net45/Google.Cloud.Logging.Type.xml",
+        "lib/netstandard1.5/Google.Cloud.Logging.Type.dll",
+        "lib/netstandard1.5/Google.Cloud.Logging.Type.xml"
+      ]
+    },
+    "Google.Cloud.Logging.V2/2.0.0": {
+      "sha512": "LGyBUwrXZe2YQF0/kvcRK1TP8bVrG6EDaZzZiRHWeJk99J47KaGYCW6bp0mGvamauLKPZrpO7zcZi43kg9FAHw==",
+      "type": "package",
+      "path": "google.cloud.logging.v2/2.0.0",
+      "files": [
+        "google.cloud.logging.v2.2.0.0.nupkg.sha512",
+        "google.cloud.logging.v2.nuspec",
+        "lib/net45/Google.Cloud.Logging.V2.dll",
+        "lib/net45/Google.Cloud.Logging.V2.xml",
+        "lib/netstandard1.5/Google.Cloud.Logging.V2.dll",
+        "lib/netstandard1.5/Google.Cloud.Logging.V2.xml"
+      ]
+    },
     "Google.Cloud.Storage.V1/2.0.0": {
       "sha512": "Ufy0z9dKAqRGicRPBUgtdDdoQZK0u8Z628cYXAbeq33GjzD7r36HEaFeopHojvNWcuyIOGgd1XpyaFjk53UfgQ==",
       "type": "package",
@@ -5370,6 +5652,67 @@
         "lib/net45/Google.Cloud.Storage.V1.xml",
         "lib/netstandard1.3/Google.Cloud.Storage.V1.dll",
         "lib/netstandard1.3/Google.Cloud.Storage.V1.xml"
+      ]
+    },
+    "Google.Cloud.Trace.V1/1.0.0": {
+      "sha512": "UwDDfVOYq0eqsERzIqF5kH18a9OM9hQ7V4VyyrrbnQg/dwIRciq9JVPY3Xo6DdnHuoJ4ce0ei6SNkNouhr2Z4g==",
+      "type": "package",
+      "path": "google.cloud.trace.v1/1.0.0",
+      "files": [
+        "google.cloud.trace.v1.1.0.0.nupkg.sha512",
+        "google.cloud.trace.v1.nuspec",
+        "lib/net45/Google.Cloud.Trace.V1.dll",
+        "lib/net45/Google.Cloud.Trace.V1.pdb",
+        "lib/net45/Google.Cloud.Trace.V1.xml",
+        "lib/netstandard1.5/Google.Cloud.Trace.V1.dll",
+        "lib/netstandard1.5/Google.Cloud.Trace.V1.pdb",
+        "lib/netstandard1.5/Google.Cloud.Trace.V1.xml"
+      ]
+    },
+    "Google.Protobuf/3.3.0": {
+      "sha512": "W0TsIYM2ED9dc/FgdbdtP68vUP1JdbwaFscG3DeVtJNlfm8A/ozjAT0H3dWIk0jJd9Zcx6B7XZ1LYERF8PqqJA==",
+      "type": "package",
+      "path": "google.protobuf/3.3.0",
+      "files": [
+        "google.protobuf.3.3.0.nupkg.sha512",
+        "google.protobuf.nuspec",
+        "lib/net45/Google.Protobuf.dll",
+        "lib/net45/Google.Protobuf.xml",
+        "lib/netstandard1.0/Google.Protobuf.dll",
+        "lib/netstandard1.0/Google.Protobuf.xml"
+      ]
+    },
+    "Grpc.Auth/1.4.0": {
+      "sha512": "Mrffw4rjlzRIW/7qZypDYkHTJzaG3S7tV9g0vOkkRObrN8BJbFE1uCCoH6cyOdlMx5JQq6AZxTwy2NNqQtVPWA==",
+      "type": "package",
+      "path": "grpc.auth/1.4.0",
+      "files": [
+        "grpc.auth.1.4.0.nupkg.sha512",
+        "grpc.auth.nuspec",
+        "lib/net45/Grpc.Auth.dll",
+        "lib/net45/Grpc.Auth.xml",
+        "lib/netstandard1.5/Grpc.Auth.dll",
+        "lib/netstandard1.5/Grpc.Auth.xml"
+      ]
+    },
+    "Grpc.Core/1.4.0": {
+      "sha512": "XYWu8C8tIVSEc7dj3tazeLXDs1D2y/mspXdacAbFUDDUI1ugT50MLiRyxRgr7gJeI73Y1+W8Jt35kanKCERx4g==",
+      "type": "package",
+      "path": "grpc.core/1.4.0",
+      "files": [
+        "build/net45/Grpc.Core.targets",
+        "grpc.core.1.4.0.nupkg.sha512",
+        "grpc.core.nuspec",
+        "lib/net45/Grpc.Core.dll",
+        "lib/net45/Grpc.Core.xml",
+        "lib/netstandard1.5/Grpc.Core.dll",
+        "lib/netstandard1.5/Grpc.Core.xml",
+        "runtimes/linux/native/libgrpc_csharp_ext.x64.so",
+        "runtimes/linux/native/libgrpc_csharp_ext.x86.so",
+        "runtimes/osx/native/libgrpc_csharp_ext.x64.dylib",
+        "runtimes/osx/native/libgrpc_csharp_ext.x86.dylib",
+        "runtimes/win/native/grpc_csharp_ext.x64.dll",
+        "runtimes/win/native/grpc_csharp_ext.x86.dll"
       ]
     },
     "Libuv/1.10.0": {
@@ -8166,16 +8509,16 @@
         "version.txt"
       ]
     },
-    "MySqlConnector/0.25.0": {
-      "sha512": "6BjcSY9dtM4XlH8rntB4GFzvjuGa6Pjwutv58OgfpmAwV0s48+vp+Q4C5bBMudAjtFTU5bQg6MQPoEBR8fD9lA==",
+    "MySqlConnector/0.26.4": {
+      "sha512": "jJ8whR/B6X1qG5jHXVDR+bTwnNxOAGBmy6qiEv8YA7MeXnTkNBegWDfvCH1/RJJYzGVbNS40VaHQv6Tqbo48gA==",
       "type": "package",
-      "path": "mysqlconnector/0.25.0",
+      "path": "mysqlconnector/0.26.4",
       "files": [
         "lib/net45/MySqlConnector.dll",
         "lib/net46/MySqlConnector.dll",
         "lib/netstandard1.3/MySqlConnector.dll",
         "lib/netstandard2.0/MySqlConnector.dll",
-        "mysqlconnector.0.25.0.nupkg.sha512",
+        "mysqlconnector.0.26.4.nupkg.sha512",
         "mysqlconnector.nuspec"
       ]
     },
@@ -8362,13 +8705,13 @@
         "nuget.frameworks.nuspec"
       ]
     },
-    "Pomelo.EntityFrameworkCore.MySql/2.0.0-rtm-10056": {
-      "sha512": "bjQAF9ABDrKE1kO4WnmhdHeannLg15d3e0hsVlJVZwCjPEg0coJ1lsnWC5Dju52FskgnEYem2KDTH/unt59gkw==",
+    "Pomelo.EntityFrameworkCore.MySql/2.0.0": {
+      "sha512": "+13BZXxGQ4E/fRXj8JNo2ifmJkEdM5pSve5HNLdrGe/IQ/6MpGsbcqpAV8eDRE11E3IvDbqnHXfOQcI6rr7LdQ==",
       "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/2.0.0-rtm-10056",
+      "path": "pomelo.entityframeworkcore.mysql/2.0.0",
       "files": [
         "lib/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "pomelo.entityframeworkcore.mysql.2.0.0-rtm-10056.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.2.0.0.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
@@ -12012,6 +12355,30 @@
         "system.runtime.interopservices.runtimeinformation.nuspec"
       ]
     },
+    "System.Runtime.Loader/4.0.0": {
+      "sha512": "4UN78GOVU/mbDFcXkEWtetJT/sJ0yic2gGk1HSlSpWI0TDf421xnrZTDZnwNBapk1GQeYN7U1lTj/aQB1by6ow==",
+      "type": "package",
+      "path": "system.runtime.loader/4.0.0",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/net462/_._",
+        "lib/netstandard1.5/System.Runtime.Loader.dll",
+        "ref/netstandard1.5/System.Runtime.Loader.dll",
+        "ref/netstandard1.5/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/de/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/es/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/fr/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/it/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/ja/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/ko/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/ru/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/zh-hans/System.Runtime.Loader.xml",
+        "ref/netstandard1.5/zh-hant/System.Runtime.Loader.xml",
+        "system.runtime.loader.4.0.0.nupkg.sha512",
+        "system.runtime.loader.nuspec"
+      ]
+    },
     "System.Runtime.Numerics/4.3.0": {
       "sha512": "yMH+MfdzHjy17l2KESnPiF2dwq7T+xLnSJar7slyimAkUh/gTrS9/UQOtv7xarskJ2/XDSNvfLGOBQPjL7PaHQ==",
       "type": "package",
@@ -13707,12 +14074,14 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Google.Cloud.Diagnostics.AspNetCore >= 1.0.0",
       "Google.Cloud.Storage.V1 >= 2.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
+      "Microsoft.AspNetCore.Authentication.Facebook >= 2.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0",
-      "Pomelo.EntityFrameworkCore.MySql >= 2.0.0-rtm-10056"
+      "Pomelo.EntityFrameworkCore.MySql >= 2.0.0"
     ]
   },
   "packageFolders": {
@@ -13761,7 +14130,11 @@
         "dependencies": {
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
-            "version": "2.0.0-rtm-10056"
+            "version": "2.0.0"
+          },
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "2.0.0"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "suppressParent": "All",
@@ -13781,6 +14154,10 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "Google.Cloud.Diagnostics.AspNetCore": {
+            "target": "Package",
+            "version": "1.0.0"
           },
           "Google.Cloud.Storage.V1": {
             "target": "Package",

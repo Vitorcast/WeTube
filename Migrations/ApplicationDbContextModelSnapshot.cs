@@ -160,15 +160,11 @@ namespace WeTube.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid>("ApplicationUserId");
-
-                    b.Property<long?>("CommentedById");
+                    b.Property<long>("ApplicationUserId");
 
                     b.Property<string>("Description");
 
-                    b.Property<int?>("MovieId");
-
-                    b.Property<long?>("MovieId1");
+                    b.Property<long?>("MovieId");
 
                     b.Property<DateTime>("TimeStamp")
                         .IsConcurrencyToken()
@@ -177,9 +173,9 @@ namespace WeTube.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommentedById");
+                    b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("MovieId1");
+                    b.HasIndex("MovieId");
 
                     b.ToTable("Comment");
                 });
@@ -191,9 +187,15 @@ namespace WeTube.Migrations
 
                     b.Property<long>("ApplicationUserId");
 
+                    b.Property<long>("CommentId");
+
                     b.Property<string>("Description");
 
+                    b.Property<string>("DownloadUrl");
+
                     b.Property<int>("Rating");
+
+                    b.Property<bool>("Recommended");
 
                     b.Property<string>("StorageUrl");
 
@@ -281,13 +283,14 @@ namespace WeTube.Migrations
 
             modelBuilder.Entity("WeTube.Data.Comment", b =>
                 {
-                    b.HasOne("WeTube.Data.ApplicationUser", "CommentedBy")
+                    b.HasOne("WeTube.Data.ApplicationUser", "ApplicationUser")
                         .WithMany("Comments")
-                        .HasForeignKey("CommentedById");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("WeTube.Data.Movie", "Movie")
                         .WithMany("Comments")
-                        .HasForeignKey("MovieId1");
+                        .HasForeignKey("MovieId");
                 });
 
             modelBuilder.Entity("WeTube.Data.Movie", b =>

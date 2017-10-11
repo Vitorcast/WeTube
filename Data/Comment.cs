@@ -12,12 +12,12 @@ namespace WeTube.Data
         public long Id { get; set; }
         public string Description { get; set; }
 
-        public int? MovieId {get;set;}
+        public long? MovieId {get;set;}
         public virtual Movie Movie { get; set; }
        
 
-        public Guid ApplicationUserId { get; set; }
-        public virtual ApplicationUser CommentedBy { get; set; }
+        public long ApplicationUserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         [ConcurrencyCheck]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

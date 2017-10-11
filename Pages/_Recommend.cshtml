@@ -19,10 +19,10 @@
             {
                 <div class="col-md-3 resent-grid recommended-grid">
                     <div class="resent-grid-img recommended-grid-img">
-                        <a href="single.html"><video style="max-height:200px" src="@item.StorageUrl"></video></a>
-                    </div>
+                        <a asp-page="/Single" asp-route-id="@item.Id"><video style="max-height:200px" src="@item.StorageUrl"></video></a>
+</div>
                     <div class="resent-grid-info recommended-grid-info video-info-grid">
-                        <h5><a href="single.html" class="title">@item.Description</a></h5>
+                        <h5><a asp-page="/Single" asp-route-id="@item.Id" class="title">@item.Description</a></h5>
                         <ul>
                             <li><span class="author author-info"><a href="#" class="author">@db.Users.Where(x => x.Id == item.ApplicationUserId).FirstOrDefault().FullName </a></span></li>
                             <li class="right-list"><p class="views views-info">@item.Rating Likes</p></li>

@@ -20,7 +20,13 @@ namespace WeTube.Services
             _storageClient = StorageClient.Create();
         }
 
-        public async Task<string> Upload(IFormFile file, long id)
+        public class MediaLinks
+        {
+            public string MediaLink { get; set; }
+            public string DownloadLink { get; set; }
+        }
+
+        public async Task<MediaLinks> Upload(IFormFile file, long id)
         {
             var videoAcl = PredefinedObjectAcl.PublicRead;
 
@@ -34,7 +40,13 @@ namespace WeTube.Services
                     options: new UploadObjectOptions { PredefinedAcl = videoAcl }
                     );
 
-                return videoObject.MediaLink;
+
+
+                return new MediaLinks()
+                {
+                    MediaLink = videoObject.MediaLink,
+                    DownloadLink = videoObject.MediaLink
+                };
             }
         }
 

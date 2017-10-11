@@ -13,7 +13,11 @@ namespace WeTube.Data
         public string Title { get; set; }
         public string Description { get; set; }
 
+        public bool Recommended{get;set;}
+
         public string StorageUrl { get; set; }
+
+        public string DownloadUrl {get;set;}
 
         public int Rating { get; set; }
 
@@ -25,7 +29,9 @@ namespace WeTube.Data
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+
+        public long CommentId { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
       
 
