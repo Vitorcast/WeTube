@@ -19,7 +19,14 @@ namespace WeTube.Data
 
         public string DownloadUrl {get;set;}
 
-        public int Rating { get; set; }
+        public virtual double Rating {
+            get
+            {
+                if (Comments != null && Comments.Count > 0)
+                    return Comments.Sum(c => c.Rating) / Comments.Count;
+                else return 0;
+            }
+        }
 
         [ConcurrencyCheck]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

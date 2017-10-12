@@ -49,11 +49,15 @@ namespace WeTube.Pages_Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FindAsync(id);
+            Movie = await _context.Movie.Include(m=> m.Comments).FirstOrDefaultAsync(m=> m.Id==id);
 
             if (Movie != null)
             {
                 await _videoUploader.Delete(Movie.Id);
+                foreach (var comment in Movie.Comments)
+                {
+                    _context.Comment.Remove(comment);
+                }
                 _context.Movie.Remove(Movie);
                 await _context.SaveChangesAsync();                
             }

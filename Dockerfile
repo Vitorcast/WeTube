@@ -6,8 +6,9 @@
 #ENTRYPOINT ["dotnet", "WeTube.dll"]
 
 
-FROM gcr.io/google-appengine/aspnetcore:2.0
-ADD ./ /app
-ENV ASPNETCORE_URLS=http://*:${PORT}
+FROM gcr.io/google-appengine/aspnetcore:2.0.0
+COPY . /app
 WORKDIR /app
-ENTRYPOINT [ "dotnet", "MainProject.dll" ]
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://*:8080
+ENTRYPOINT ["dotnet", "WeTube.dll"]

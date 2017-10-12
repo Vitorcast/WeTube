@@ -28,6 +28,9 @@ namespace WeTube.Pages
         public Movie Movie { get; set; }
 
         [BindProperty]
+        public List<Movie> UpNext { get; set; }
+
+        [BindProperty]
         public List<Comment> Comments {get;set;}
 
         [BindProperty]
@@ -41,6 +44,11 @@ namespace WeTube.Pages
             [DataType(DataType.Text)]
             [Display(Name = "Comment")]
             public string Comment { get; set; }
+
+            [Required]
+            [Range(minimum:0, maximum:5, ErrorMessage ="The number must be between 0 and 5")]
+            [Display(Name = "Rating")]
+            public int Rating { get; set; }
         }
 
 
@@ -49,16 +57,23 @@ namespace WeTube.Pages
             if (id == null)
             {
                 return NotFound();
-            }
-            
+            }            
+
             Movie = await _context.Movie
-                .Include(m => m.ApplicationUser)  
+                .Include(m => m.ApplicationUser)
                 .SingleOrDefaultAsync(m => m.Id == id);
+
+            UpNext = await _context.Movie
+               .Where(m => m.ApplicationUser == Movie.ApplicationUser)
+               .OrderByDescending(m => m.TimeStamp)
+               .Where(m => m.Id != id)
+               .ToListAsync();
 
             Comments = await _context.Comment
                 .Include(c => c.ApplicationUser)
-                .Where(c=>c.ApplicationUserId == Movie.ApplicationUserId)
+                .Where(c => c.MovieId == Movie.Id)
                 .ToListAsync();
+
 
             if (Movie == null)
             {
@@ -81,18 +96,32 @@ namespace WeTube.Pages
                 throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
+           
             _context.Comment.Add(new Comment()
             {
                 Description = Input.Comment,
                 MovieId = Movie.Id,
+                Rating = Input.Rating,
                 ApplicationUser = user
             });
 
             await _context.SaveChangesAsync();
 
+
             Movie = await _context.Movie
-                .Include(m => m.Comments)
-                .Include(m => m.ApplicationUser).SingleOrDefaultAsync(m => m.Id == Movie.Id);
+                .Include(m => m.ApplicationUser)
+                .SingleOrDefaultAsync(m => m.Id == Movie.Id);
+
+            UpNext = await _context.Movie
+               .Where(m => m.ApplicationUser == Movie.ApplicationUser)
+               .OrderByDescending(m => m.TimeStamp)
+               .Where(m => m.Id != Movie.Id)
+               .ToListAsync();
+
+            Comments = await _context.Comment
+                .Include(c => c.ApplicationUser)
+                .Where(c => c.MovieId == Movie.Id)
+                .ToListAsync();
 
             return Page();
         }

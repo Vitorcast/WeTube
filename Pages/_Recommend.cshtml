@@ -14,22 +14,20 @@
 @for (int i = 0; i < rows; i++)
 {
     <div class="recommended">
-        <div class="recommended-grids"> 
-            @foreach (var item in db.Movie.OrderByDescending(x=>x.TimeStamp).Skip(i*4).Take(4))
+        <div class="recommended-grids">
+            @foreach (var item in db.Movie.OrderByDescending(x => x.TimeStamp).Skip(i * 4).Take(4))
             {
                 <div class="col-md-3 resent-grid recommended-grid">
                     <div class="resent-grid-img recommended-grid-img">
-                        <a asp-page="/Single" asp-route-id="@item.Id"><video style="max-height:200px" src="@item.StorageUrl"></video></a>
-</div>
+                        <a asp-page="/Single" asp-route-id="@item.Id"><video class="video-recommend" src="@item.StorageUrl"></video></a>
+                    </div>
                     <div class="resent-grid-info recommended-grid-info video-info-grid">
-                        <h5><a asp-page="/Single" asp-route-id="@item.Id" class="title">@item.Description</a></h5>
-                        <ul>
-                            <li><span class="author author-info"><a href="#" class="author">@db.Users.Where(x => x.Id == item.ApplicationUserId).FirstOrDefault().FullName </a></span></li>
-                            <li class="right-list"><p class="views views-info">@item.Rating Likes</p></li>
-                        </ul>
+                        <h5><a asp-page="/Single" asp-route-id="@item.Id" class="title">@item.Title</a></h5>
+                        Posted By:@db.Users.Where(x => x.Id == item.ApplicationUserId).FirstOrDefault().FullName
+
                     </div>
                 </div>
-            }         
+            }
         </div>
     </div>
     <div class="clearfix"> </div>

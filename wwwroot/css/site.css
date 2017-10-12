@@ -354,7 +354,33 @@ body {
     margin-top: 1em;
 }
 
+/* Single */
 
+.video {
+    width: 80%;
+	padding-top:30px;	
+	overflow:hidden;
+}
+
+.video-recent {    
+    width:300px;  
+    height:200px;
+}
+
+.video-recommend {
+    
+    width:200px;
+    height:150px;
+}
+
+.comment {
+    width:80%;
+}
+
+.centerBlock{
+    display:table;
+    margin:auto;
+}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

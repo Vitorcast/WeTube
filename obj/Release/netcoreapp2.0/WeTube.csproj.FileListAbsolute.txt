@@ -9,3 +9,5 @@ F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Release\netcoreapp2.0\WeTube
 F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Release\netcoreapp2.0\WeTube.AssemblyInfo.cs
 F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Release\netcoreapp2.0\WeTube.dll
 F:\CENTENNIAL\API\Assignments\03\Project\WeTube\obj\Release\netcoreapp2.0\WeTube.pdb
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Release\netcoreapp2.0\app.yaml
+F:\CENTENNIAL\API\Assignments\03\Project\WeTube\bin\Release\netcoreapp2.0\client.pfx

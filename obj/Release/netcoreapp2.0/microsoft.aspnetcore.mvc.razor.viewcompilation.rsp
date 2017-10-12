@@ -38,6 +38,7 @@ F:\CENTENNIAL\API\Assignments\03\Project\WeTube
 --file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\Movies\Details.cshtml
 --file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\Movies\Edit.cshtml
 --file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\Movies\Index.cshtml
+--file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\Single.cshtml
 --file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\_Layout.cshtml
 --file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\_LoginPartial.cshtml
 --file=F:\CENTENNIAL\API\Assignments\03\Project\WeTube\Pages\_MovieListPartial.cshtml

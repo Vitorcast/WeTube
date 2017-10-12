@@ -14091,11 +14091,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "f:\\CENTENNIAL\\API\\Assignments\\03\\Project\\WeTube\\WeTube.csproj",
+      "projectUniqueName": "F:\\CENTENNIAL\\API\\Assignments\\03\\Project\\WeTube\\WeTube.csproj",
       "projectName": "WeTube",
-      "projectPath": "f:\\CENTENNIAL\\API\\Assignments\\03\\Project\\WeTube\\WeTube.csproj",
+      "projectPath": "F:\\CENTENNIAL\\API\\Assignments\\03\\Project\\WeTube\\WeTube.csproj",
       "packagesPath": "C:\\Users\\Thiago\\.nuget\\packages\\",
-      "outputPath": "f:\\CENTENNIAL\\API\\Assignments\\03\\Project\\WeTube\\obj\\",
+      "outputPath": "F:\\CENTENNIAL\\API\\Assignments\\03\\Project\\WeTube\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -12,6 +12,8 @@ namespace WeTube.Data
         public long Id { get; set; }
         public string Description { get; set; }
 
+        public double Rating { get; set; }
+
         public long? MovieId {get;set;}
         public virtual Movie Movie { get; set; }
        

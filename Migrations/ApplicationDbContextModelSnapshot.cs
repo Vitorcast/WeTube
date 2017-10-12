@@ -166,6 +166,8 @@ namespace WeTube.Migrations
 
                     b.Property<long?>("MovieId");
 
+                    b.Property<double>("Rating");
+
                     b.Property<DateTime>("TimeStamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
@@ -192,8 +194,6 @@ namespace WeTube.Migrations
                     b.Property<string>("Description");
 
                     b.Property<string>("DownloadUrl");
-
-                    b.Property<int>("Rating");
 
                     b.Property<bool>("Recommended");
 
